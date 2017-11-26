@@ -29,7 +29,7 @@
         <td>{{ $employee->name }}</td>
         <td>{{ $employee->lastName }}</td>
         <td>{{ $employee->role }}</td>
-        <td>00</td>
+        <td>{{ $employee->department->name}}</td>
         <td>
  
             

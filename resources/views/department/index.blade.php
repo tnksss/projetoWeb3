@@ -27,7 +27,7 @@
         <td>{{ $department->id }}</td>
         <td>{{ $department->name }}</td>
         <td>{{ $department->description }}</td>
-        <td>02</td>
+        <td>{{ $department->countEmployees}}</td>
         <td>
  
             

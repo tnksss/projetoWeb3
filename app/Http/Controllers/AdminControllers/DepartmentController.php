@@ -19,7 +19,6 @@ class DepartmentController extends Controller
     {
     	$departments = Department::orderBy('id')->paginate(5);
 
-    	
         return view('department.index', compact('departments'));
     }
 
@@ -66,14 +65,18 @@ class DepartmentController extends Controller
     }
     public function show($id)
     {
+            
         $department = Department::find($id);
+        
         $employees = Employee::orderBy('id')->paginate(5);
+        
         return view('department.show', [
             'department' => $department, 'employees' => $employees
         ]);
     }
     public function destroy($id)
     {
+        
         Department::destroy($id);
         return redirect()
             ->route('departments.index')

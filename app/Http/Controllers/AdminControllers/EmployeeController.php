@@ -5,6 +5,7 @@ namespace ProjetoWeb3\Http\Controllers\AdminControllers;
 use ProjetoWeb3\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use ProjetoWeb3\Models\Employee;
+use ProjetoWeb3\Models\Department;
 
 class EmployeeController extends Controller
 {
@@ -22,9 +23,10 @@ class EmployeeController extends Controller
 
     public function create()
     {
-
+        $departments = Department::all();
+        
         return view('employee.create', [
-            'employee' => new Employee()
+            'employee' => new Employee(), 'departments' => $departments
         ]);
     }
 	
@@ -34,16 +36,21 @@ class EmployeeController extends Controller
             'name' => 'required|between:2,100',
             'lastName' => 'required|between:2,255',
             'role' => 'required|between:2,50',
+            'department_id' => 'required|integer',
 
         ]);
 
-        $fields = $request->only('name', 'lastName','role');
-        (new Employee($fields))->save();
+        $fields = $request->only('name', 'lastName','role', 'department_id');
+        Employee::create($fields);
 
         return redirect()
             ->route('employees.index')
             ->with('success', 'Funcionário cadastrado com sucesso');
     }
+
+
+
+
     public function edit($id)
     {
         return view('employee.edit', [
@@ -53,6 +60,8 @@ class EmployeeController extends Controller
 
     public function update(Request $request, $id)
     {
+        $departments = Department::all();
+        
         $this->validate($request, [
             'name' => 'required|between:2,100',
             'lastName' => 'required|between:4,255',
@@ -80,6 +89,14 @@ class EmployeeController extends Controller
         return redirect()
             ->route('employees.index')
             ->with('success', 'Funcionário deletado com sucesso.');
+    }
+
+    public function upload()
+    {
+    }
+
+    public function move()
+    {
     }
     
 }

@@ -21,14 +21,15 @@
 				    <input  id="role" name="role" class="form-control" value="">
 				</div>
 				<div class="form-group">
-					<select class="custom-select" for="department_name">
-	  					<option selected>Departamento:</option>
-					    <option value="1">Recursos Humanos</option>
-					    <option value="2">Administrativo</option>
-					    <option value="3">Three</option>
-					</select>
-
+    				<label for="department">Departamento</label>
+    				<select name="department_id" class="form-control">
+    					@foreach ($departments as $department)
+    						<option class="form-control" value="{{$department->id}}">{{$department->name}}</option>
+    					@endforeach
+    				</select>
 				</div>
+				{{Form::label('employee_photo', 'Foto do Perfil',['class' => 'control-label'])}}
+				{{Form::file('image',['class'=>'btn btn-info btn-lg'])}}
 
 				<div class="form-group">
     				<input type="submit" class="btn btn-primary" value="Salvar">

@@ -21,3 +21,6 @@ Route::get('/home', 'HomeController@index')->name('home');
 Route::resource('/departments', 'AdminControllers\DepartmentController');
 Route::resource('/employees', 'AdminControllers\EmployeeController');
 
+Route::get('/upload', 'EmployeeController@upload');
+Route::post('/upload', 'EmployeeController@move');
+

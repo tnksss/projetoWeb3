@@ -11,7 +11,9 @@
 			<img src="..\ryan.jpg" style="border-radius: 60px; height: 123px; width:123px;">		
 		</div>
 		<h4 class="title">{{$employee->name." ".$employee->lastName }}</h4>
+		<p class="category">{{$employee->department->name}}</p>
 		<p class="category">{{$employee->role}}</p>
+		
 		@include('partials._employee_buttons')
 	</div>
 </div>
