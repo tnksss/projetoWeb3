@@ -3,9 +3,11 @@
 <h1 class="text-center ">Detalhes do Departamento</h1>
 <div class="card">
   <div class="card-header">
-	<div class="text-right">
+  	<div class="text-right">
+
 	    @include('partials._department_buttons')
     </div>
+    
     <h3 class="card-title text-center"> <strong>{{$department->name}}</strong></h3>
     
   </div>
