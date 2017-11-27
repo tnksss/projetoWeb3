@@ -53,8 +53,9 @@ class EmployeeController extends Controller
 
     public function edit($id)
     {
+        $departments = Department::all();
         return view('employee.edit', [
-            'employee' => Employee::find($id)
+            'employee' => Employee::find($id), 'departments' => $departments
         ]);
     }
 

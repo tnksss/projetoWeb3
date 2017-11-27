@@ -15,7 +15,7 @@
 
 				<div class="form-group">
  					{!! Form::label('description', 'Descrição*', array('class' => 'control-label', 'rows' => 3 )) !!}
- 					<textarea name="description" id="description" class="form-control" rows="5" value="{{ old('description') ?? $department->description ?? null }}"></textarea> 
+ 					<textarea name="description" id="description" class="form-control" rows="5" >{{$department->description}}</textarea> 
 				</div>
 
 				<div class="form-group">
